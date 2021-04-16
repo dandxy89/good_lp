@@ -8,10 +8,15 @@ documentation = "https://docs.rs/good_lp"
 description = " Linear Programming for Rust, with an user-friendly API. This crate allows modeling LP problems, and lets you solve them with various solvers."
 license = "MIT"
 keywords = ["linear-programming", "optimization", "symbolic", "math", "solver"]
-categories = ["mathematics", "algorithms", "science", "api-bindings", "data-structures"]
+categories = [
+    "mathematics",
+    "algorithms",
+    "science",
+    "api-bindings",
+    "data-structures"
+]
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-
 [features]
 default = ["coin_cbc"]
 
@@ -30,7 +35,6 @@ float_eq = "0.5"
 [[bench]]
 name = "benchmark"
 harness = false
-
 
 [package.metadata.docs.rs]
 # Display the documentation for all solvers on docs.rs
