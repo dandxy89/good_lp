@@ -4,8 +4,7 @@
 use std::collections::{hash_map::Entry, HashMap};
 
 use good_lp::{
-    constraint, variable, variables, Expression, Solution, SolverModel, StaticSolver,
-    Variable,
+    constraint, variable, variables, Expression, Solution, SolverModel, StaticSolver, Variable,
 };
 
 #[derive(Debug, Hash, PartialEq, Eq)]
@@ -139,13 +138,13 @@ fn solve_diet_example<S: StaticSolver>(
         println!("Food {:?}", guide);
         println!("food sum {:?}", food_sum);
         match guide.limit.level {
+            Quantity::Value => continue,
             Quantity::Min => {
                 p.add_constraint(constraint!(food_sum >= guide.limit.volume + 0.0001));
             }
             Quantity::Max => {
                 p.add_constraint(constraint!(food_sum <= guide.limit.volume));
             }
-            Quantity::Value => (),
         }
     }
 
@@ -191,7 +190,7 @@ fn main() {
         },
         Guideline {
             limit: FoodProperty {
-                nutrient: Nutrient::Calories,
+                nutrient: Nutrient::Fat,
                 volume: 65.,
                 level: Quantity::Max,
             },
